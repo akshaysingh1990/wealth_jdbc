@@ -16,12 +16,16 @@ import main.connection.ConnectionManager;
 public class Management {
 	
 	private static AdvisorService advisorService = new AdvisorService();
-	//private static CustomerService customerService = new CustomerService(advisorService);
+	private static CustomerService customerService = new CustomerService();
 
 	public static void main(String[] args) throws SQLException {
 		
 		
-		
+		//ERROR ERROR ERROR   HOW TO AUTO SHIFT ID WHEN YOU DELETE SOMETHING
+		//RIGHT NOW IN OUR CUSTOMER TABLE ID=1 IS NOT THERE
+		//THOUGHT: CAN WE WRITE A CHECK METHOD FOR USER INPUT IN MY CASE I WANT TO SAY 
+		//THAT YOUR ENTERED ID IS WRONG (PROVIDED YOUR CONDITIONS CHANGED FREQUENTLY IN THIS
+		//CASE THE ID ARE CONSTANTLY CHANGING BY INSERTING AND DELETING CUSTOMERS)
 		
 		
 		
@@ -42,19 +46,20 @@ public class Management {
 			if (choice == 1) {
 				advisorService.view();
 			} else if (choice == 2) {
-			//	customerService.view();
+				customerService.view();
 			} else if (choice == 3) {
 				advisorService.create();
 			} else if (choice == 4) {
-			//	customerService.create();
+				customerService.create();
+			
 			} else if (choice == 5) {
 				advisorService.delete();
 			} else if (choice == 6) {
-			//	customerService.delete();
+				customerService.delete();
 			} else if (choice == 7) {
 				advisorService.edit();
 			} else if (choice == 8) {
-			//	customerService.edit();
+				customerService.edit();
 			}
 			//else if (choice == 9) {
 			//	advisorService.getAll();

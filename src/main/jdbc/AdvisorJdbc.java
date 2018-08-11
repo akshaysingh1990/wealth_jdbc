@@ -2,6 +2,7 @@ package main.jdbc;
 
 import main.model.Advisor;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ public class AdvisorJdbc extends CommonJdbc {
 	public void create(Advisor advisor) throws SQLException {
        PreparedStatement st;
 		if (advisor.getId() == null) {
-			String sql = "insert into Advisor(name,age) values(?,?)";
+			String sql = "insert into Advisor(name,age) values(?,?,?)";
 
 			 st = connection.prepareStatement(sql);
 
@@ -46,7 +47,7 @@ st.executeUpdate();
 		ResultSet rs = st.executeQuery();
 
 		while (rs.next()) {
-			System.out.println(rs.getInt("id") + "   " + rs.getString("name") + "   " + rs.getInt("age"));
+			System.out.println(rs.getInt("id") + "   " + rs.getString("name") + "   " + rs.getInt("age")+"   "+rs.getInt("TotalTransactionAmount"));
 		}
 
 	}
@@ -105,4 +106,7 @@ st.executeUpdate();
 		advisor.setAge(rs.getInt("age"));
 		return advisor;
 	}
+	
+
+	
 }
